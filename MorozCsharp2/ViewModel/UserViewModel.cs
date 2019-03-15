@@ -6,6 +6,7 @@ using System.Windows;
 using MorozCsharp2.Models;
 using MorozCsharp2.Tools;
 using MorozCsharp2.Tools.Manager;
+using MorozCsharp2.ViewModel.Exceptions;
 
 namespace MorozCsharp2.ViewModel
 {
@@ -87,14 +88,17 @@ namespace MorozCsharp2.ViewModel
             if (_birthdayDate > DateTime.Today)
             {
                 MessageBox.Show("You don't even exist yet, don't lie to me");
+                throw new TimeTravellerException("The date from future was entered");
             }
             else if (DateTime.Today.Year - _birthdayDate.Year > 135)
             {
                 MessageBox.Show("Go take your pills old man");
+                throw new OldException("Entered value of age can't be real");
             }
             else if (!IsValidEmailAddress(_email))
             {
                 MessageBox.Show("Enter valid Email");
+                throw new EmailException("Invalid Email was entered");
             }
             else
             {
@@ -102,7 +106,7 @@ namespace MorozCsharp2.ViewModel
                 await Task.Run((() =>
                 {
 
-                    CleanInput();
+                   
                     
                     User user = new User(_name, _surname, _email, _birthdayDate);
                     MessageBox.Show(
@@ -116,7 +120,7 @@ namespace MorozCsharp2.ViewModel
                         $"Your Chinese Zodiac Sign is {user.ChineseZodiac}\n" +
                         $"Your Sun Zodiac Sign is {user.SunZodiac}\n"
                     );
-                    
+                    CleanInput();
 
 
                 }));

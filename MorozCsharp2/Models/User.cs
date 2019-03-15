@@ -181,32 +181,32 @@ namespace MorozCsharp2.Models
         }
         private string ChineseZodiacSign()
         {
-            switch ((_birthdayDate.Year - 3) % 12)
+            switch (_birthdayDate.Year % 12)
             {
+                case 0:
+                    return "Monkey";
                 case 1:
-                    return  "Rat";
+                    return "Rooster";
                 case 2:
-                    return  "Ox";
+                    return "Dog";
                 case 3:
-                    return  "Tiger";
+                    return "Pig";
                 case 4:
-                    return  "Rabbit";
+                    return "Rat";
                 case 5:
-                    return  "Dragon";
+                    return "Ox";
                 case 6:
-                    return  "Snake";
+                    return "Tiger";
                 case 7:
-                    return  "Horse";
+                    return "Rabbit";
                 case 8:
-                    return  "Goat";
+                    return "Dragon";
                 case 9:
-                    return  "Monkey";
+                    return "Snake";
                 case 10:
-                    return  "Rooster";
+                    return "Horse";
                 case 11:
-                    return  "Dog";
-                case 12:
-                    return  "Pig";
+                    return "Sheep";
                 default:
                     throw new ArgumentException("Your chinese zodiac wasn't found");
             }

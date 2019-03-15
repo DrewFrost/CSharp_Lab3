@@ -98,11 +98,12 @@ namespace MorozCsharp2.ViewModel
             }
             else
             {
-
+                LoaderManager.Instance.ShowLoader();
                 await Task.Run((() =>
                 {
 
-
+                    CleanInput();
+                    
                     User user = new User(_name, _surname, _email, _birthdayDate);
                     MessageBox.Show(
                         $"Your name is {user.Name}\n" +
@@ -115,10 +116,12 @@ namespace MorozCsharp2.ViewModel
                         $"Your Chinese Zodiac Sign is {user.ChineseZodiac}\n" +
                         $"Your Sun Zodiac Sign is {user.SunZodiac}\n"
                     );
-                    CleanInput();
+                    
 
 
                 }));
+                LoaderManager.Instance.HideLoader();
+
 
 
 

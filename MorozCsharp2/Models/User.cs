@@ -18,7 +18,7 @@ namespace MorozCsharp2.Models
         private readonly string _birthday;
         private readonly string _adult;
         private readonly string _westernZodiac;
-        private string _chineseZodiac;
+        private readonly string _chineseZodiac;
         private readonly string _sunZodiac;
 
         public User(string name, string surname, string email, DateTime birthdayDate)
@@ -104,10 +104,7 @@ namespace MorozCsharp2.Models
         public string ChineseZodiac
         {
             get { return _chineseZodiac; }
-            set
-            {
-                _chineseZodiac = value;
-            }
+            
         }
 
         public string SunZodiac
@@ -123,8 +120,6 @@ namespace MorozCsharp2.Models
         #endregion
 
 
-
-    
 
         private int UsersAge()
         {
@@ -189,29 +184,29 @@ namespace MorozCsharp2.Models
             switch ((_birthdayDate.Year - 3) % 12)
             {
                 case 1:
-                    return _chineseZodiac = "Rat";
+                    return  "Rat";
                 case 2:
-                    return _chineseZodiac = "Ox";
+                    return  "Ox";
                 case 3:
-                    return _chineseZodiac = "Tiger";
+                    return  "Tiger";
                 case 4:
-                    return _chineseZodiac = "Rabbit";
+                    return  "Rabbit";
                 case 5:
-                    return _chineseZodiac = "Dragon";
+                    return  "Dragon";
                 case 6:
-                    return _chineseZodiac = "Snake";
+                    return  "Snake";
                 case 7:
-                    return _chineseZodiac = "Horse";
+                    return  "Horse";
                 case 8:
-                    return _chineseZodiac = "Goat";
+                    return  "Goat";
                 case 9:
-                    return _chineseZodiac = "Monkey";
+                    return  "Monkey";
                 case 10:
-                    return _chineseZodiac = "Rooster";
+                    return  "Rooster";
                 case 11:
-                    return _chineseZodiac = "Dog";
+                    return  "Dog";
                 case 12:
-                    return _chineseZodiac = "Pig";
+                    return  "Pig";
                 default:
                     throw new ArgumentException("Your chinese zodiac wasn't found");
             }
